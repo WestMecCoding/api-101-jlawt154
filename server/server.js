@@ -11,7 +11,7 @@ app.get('/', (req, res) => {
     //res.send('hello world');
 });
 app.get('/csv-data', (req, res) => {
-    const csvPath = path.join(__dirname, '..', 'data', 'zonal_sea_averages.csv');
+    const csvPath = path.join(__dirname, '..', 'data', 'deniro.csv');
     fs.readFile(csvPath, 'utf8', (err, data) => {
         if (err) { 
             console.error(err);
@@ -20,9 +20,6 @@ app.get('/csv-data', (req, res) => {
         res.type('text/plain');
         res.send(data);
      });
-});
-app.get('/3pm', (req, res) => { 
-    res.send('hello 3pm');
 });
 app.listen(port, () => {
     console.log(`server is listening on port${port}`);
